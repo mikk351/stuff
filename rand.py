@@ -7,13 +7,13 @@ import timeit
 
 start = timeit.default_timer()
 
-cols = 11 
+cols = 10 
 rows = 1000
 size = 3
 fileName = 'rand.csv'
 
 fieldNames = ['id']
-for i in range(1, cols):
+for i in range(1, cols+1):
 	fieldNames.append('rand'+str(i))
 
 chars=string.ascii_uppercase + string.digits
@@ -22,7 +22,7 @@ with open(fileName, 'w') as csvfile:
 	writer.writeheader()
 	for i in range(0, rows):		
 		row = {'id': i}
-		for j in range(1, cols):
+		for j in range(1, cols+1):
 			row['rand'+str(j)] = ''.join(random.choice(chars) for _ in range(size))
 		writer.writerow(row)	
 
