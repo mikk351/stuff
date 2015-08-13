@@ -12,9 +12,8 @@ rows = 1000
 size = 3
 fileName = 'rand.csv'
 
-fieldNames = ['id']
-for i in range(1, cols+1):
-	fieldNames.append('rand'+str(i))
+fieldNames = ['rand'+str(i) for i in range(1, cols+1)]
+fieldNames.insert(0, "id")
 
 chars=string.ascii_uppercase + string.digits
 with open(fileName, 'w') as csvfile:
